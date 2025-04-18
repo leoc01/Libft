@@ -1,0 +1,54 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/08 13:30:36 by lbuscaro          #+#    #+#              #
+#    Updated: 2025/04/16 15:32:42 by lbuscaro         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -rf
+
+FILES = ft_isalpha.c
+FILES += ft_isdigit.c
+FILES += ft_isalnum.c
+FILES += ft_isascii.c
+FILES += ft_isprint.c
+FILES += ft_strlen.c
+FILES += ft_memset.c
+FILES += ft_bzero.c
+FILES += ft_memcpy.c
+FILES += ft_memmove.c
+FILES += ft_strlcpy.c
+FILES += ft_strlcat.c
+FILES += ft_toupper.c
+FILES += ft_tolower.c
+FILES += ft_strchr.c
+FILES += ft_strrchr.c
+FILES += ft_strncmp.c
+FILES += ft_memchr.c
+
+OBJS = $(FILES:%.c=%.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
