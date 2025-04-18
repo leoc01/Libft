@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 15:57:42 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/10 16:00:08 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/18 16:47:20 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/18 16:55:00 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*dest_ptr;
+	size_t	i;
 
-	if (dest == NULL || src == NULL)
+	if (n == 0)
 	{
-		return (NULL);
+		return (0);
 	}
-	dest_ptr = (unsigned char *)dest;
-	if ((unsigned char *)src > dest_ptr)
+	i = 0;
+	while (i < n - 1 && ((unsigned char *)s1)[i] == ((unsigned char *)s2)[i])
 	{
-		ft_memcpy(dest, src, n);
+		i++;
 	}
-	else if ((unsigned char *)src < dest_ptr)
-	{
-		while (n-- > 0)
-		{
-			dest_ptr[n] = ((unsigned char *)src)[n];
-		}
-	}
-	return (dest);
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

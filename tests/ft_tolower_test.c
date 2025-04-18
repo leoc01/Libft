@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tolower_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 15:57:42 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/10 16:00:08 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/15 15:32:46 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/15 15:33:14 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftest.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_tolower_test(void)
 {
-	unsigned char	*dest_ptr;
+	int		i;
 
-	if (dest == NULL || src == NULL)
+	i = 0;
+	while (i <= 127)
 	{
-		return (NULL);
+		if (tolower(i) != ft_tolower(i))
+			return (FAIL);
+		i++;
 	}
-	dest_ptr = (unsigned char *)dest;
-	if ((unsigned char *)src > dest_ptr)
-	{
-		ft_memcpy(dest, src, n);
-	}
-	else if ((unsigned char *)src < dest_ptr)
-	{
-		while (n-- > 0)
-		{
-			dest_ptr[n] = ((unsigned char *)src)[n];
-		}
-	}
-	return (dest);
+	return (OK);
 }

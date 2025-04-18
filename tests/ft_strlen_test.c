@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 15:57:42 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/10 16:00:08 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/09 14:23:16 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/09 14:24:14 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftest.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_strlen_test(void)
 {
-	unsigned char	*dest_ptr;
+	char	str[5][20];
+	int		cont;
 
-	if (dest == NULL || src == NULL)
+	cont = 0;
+	strcpy(str[0], "Um teste");
+	strcpy(str[1], "");
+	strcpy(str[2], "Ponto\n");
+	strcpy(str[3], "\t \n oitenta");
+	strcpy(str[4], "Um testesadsadsadsadsadsa");
+	while (cont < 5)
 	{
-		return (NULL);
+		if (ft_strlen(str[cont]) != strlen(str[cont]))
+			return (FAIL);
+		cont++;
 	}
-	dest_ptr = (unsigned char *)dest;
-	if ((unsigned char *)src > dest_ptr)
-	{
-		ft_memcpy(dest, src, n);
-	}
-	else if ((unsigned char *)src < dest_ptr)
-	{
-		while (n-- > 0)
-		{
-			dest_ptr[n] = ((unsigned char *)src)[n];
-		}
-	}
-	return (dest);
+	return (OK);
 }

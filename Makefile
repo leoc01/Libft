@@ -34,6 +34,8 @@ FILES += ft_strchr.c
 FILES += ft_strrchr.c
 FILES += ft_strncmp.c
 FILES += ft_memchr.c
+FILES += ft_memcmp.c
+FILES += ft_strnstr.c
 
 OBJS = $(FILES:%.c=%.o)
 

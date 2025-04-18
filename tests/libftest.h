@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/06 14:40:19 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/06 14:40:52 by lbuscaro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef LIBFTEST_H
+# define LIBFTEST_H
+
+# define OK 1
+# define FAIL 0
+
+# include <ctype.h>
+# include <stdio.h>
+# include <string.h>
+# include <stddef.h>
+# include <bsd/string.h>
+# include "libft.h"
+
+int		ft_isalpha_test(void);
+int		ft_isdigit_test(void);
+int		ft_isalnum_test(void);
+int		ft_isascii_test(void);
+int		ft_isprint_test(void);
+int		ft_strlen_test(void);
+int		ft_memset_test(void);
+int		ft_bzero_test(void);
+int		ft_memcpy_test(void);
+int		ft_memmove_test(void);
+int		ft_strlcpy_test(void);
+int		ft_strlcat_test(void);
+int		ft_toupper_test(void);
+int		ft_tolower_test(void);
+int		ft_strchr_test(void);
+int		ft_strrchr_test(void);
+int		ft_strncmp_test(void);
+int		ft_memchr_test(void);
+int		ft_memcmp_test(void);
+int		ft_strnstr_test(void);
+
+#endif
