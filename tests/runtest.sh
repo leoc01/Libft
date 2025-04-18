@@ -28,6 +28,6 @@ while :; do
 		compile_n_run
 		md5sum $files > $sum
 	fi
-	sleep 0.1;
+	sleep 0.7;
 done
 
