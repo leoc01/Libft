@@ -22,7 +22,7 @@ int	ft_strlen_test(void)
 	strcpy(str[1], "");
 	strcpy(str[2], "Ponto\n");
 	strcpy(str[3], "\t \n oitenta");
-	strcpy(str[4], "Um testesadsadsadsadsadsa");
+	strcpy(str[4], "Um testesadsadsadsa");
 	while (cont < 5)
 	{
 		if (ft_strlen(str[cont]) != strlen(str[cont]))
