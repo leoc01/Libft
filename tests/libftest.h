@@ -46,5 +46,6 @@ int		ft_memcmp_test(void);
 int		ft_strnstr_test(void);
 int		ft_atoi_test(void);
 int		ft_calloc_test(void);
+int		ft_strdup_test(void);
 
 #endif

@@ -45,6 +45,7 @@ int	main(void)
 	run_test("ft_strnstr", ft_strnstr_test);
 	run_test("ft_atoi", ft_atoi_test);
 	run_test("ft_calloc", ft_calloc_test);
+	run_test("ft_strdup", ft_strdup_test);
 	printf("\n\n");
 	return (0);
 }
