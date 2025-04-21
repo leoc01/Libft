@@ -17,7 +17,7 @@ look_files() {
 }
 
 files=$(look_files)
-sum=$(echo *.md5)
+sum=$(echo checksum.md5)
 
 compile_n_run
 md5sum $files > $sum
