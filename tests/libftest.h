@@ -16,11 +16,12 @@
 # define OK 1
 # define FAIL 0
 
+# include <stdlib.h>
 # include <ctype.h>
 # include <stdio.h>
-# include <string.h>
-# include <stddef.h>
+//# include <string.h>
 # include <bsd/string.h>
+# include <malloc.h>
 # include "libft.h"
 
 int		ft_isalpha_test(void);
@@ -43,5 +44,7 @@ int		ft_strncmp_test(void);
 int		ft_memchr_test(void);
 int		ft_memcmp_test(void);
 int		ft_strnstr_test(void);
+int		ft_atoi_test(void);
+int		ft_calloc_test(void);
 
 #endif

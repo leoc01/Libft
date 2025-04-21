@@ -43,6 +43,8 @@ int	main(void)
 	run_test("ft_memchr", ft_memchr_test);
 	run_test("ft_memcmp", ft_memcmp_test);
 	run_test("ft_strnstr", ft_strnstr_test);
+	run_test("ft_atoi", ft_atoi_test);
+	run_test("ft_calloc", ft_calloc_test);
 	printf("\n\n");
 	return (0);
 }
