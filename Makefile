@@ -39,6 +39,10 @@ FILES += ft_strnstr.c
 FILES += ft_atoi.c
 FILES += ft_calloc.c
 FILES += ft_strdup.c
+FILES += ft_substr.c
+FILES += ft_strjoin.c
+FILES += ft_strtrim.c
+FILES += ft_split.c
 
 OBJS = $(FILES:%.c=%.o)
 

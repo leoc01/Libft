@@ -47,5 +47,9 @@ int		ft_strnstr_test(void);
 int		ft_atoi_test(void);
 int		ft_calloc_test(void);
 int		ft_strdup_test(void);
+int		ft_substr_test(void);
+int		ft_strjoin_test(void);
+int		ft_strtrim_test(void);
+int		ft_split_test(void);
 
 #endif

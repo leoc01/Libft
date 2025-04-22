@@ -46,6 +46,10 @@ int	main(void)
 	run_test("ft_atoi", ft_atoi_test);
 	run_test("ft_calloc", ft_calloc_test);
 	run_test("ft_strdup", ft_strdup_test);
+	run_test("ft_substr", ft_substr_test);
+	run_test("ft_strjoin", ft_strjoin_test);
+	run_test("ft_strtrim", ft_strtrim_test);
+	run_test("ft_split", ft_split_test);
 	printf("\n\n");
 	return (0);
 }
