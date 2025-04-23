@@ -39,10 +39,10 @@ $(NAME): $(TESTMAIN) $(LIBFTEST) $(LIBFT)
 #	@echo " - Compiling $@s"
 	$(CC) $(CFLAGS) $(TESTMAIN) $(LIBFTEST) $(LIBFT) -lbsd -o $(NAME)
 
-gdb: $(GDBTEST)
+gdb: $(GDBMAIN) $(LIBFTEST) $(LIBFT)
 #	@echo "Compiling to gdb"
 	$(CC) -g $(CFLAGS) $(GDBMAIN) $(LIBFTEST) $(LIBFT) -lbsd -o $(GDBTEST)
-	gdb ./$(NAME)
+	gdb ./$(GDBTEST)
 
 $(LIBFTEST): $(LIBFT) $(TESTOBJS)
 #	@echo " - Compiling $@"

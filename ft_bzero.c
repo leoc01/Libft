@@ -17,8 +17,6 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*ptr;
 	size_t			position;
 
-	if (s == NULL)
-		return ;
 	position = 0;
 	ptr = (unsigned char *)s;
 	while (position < n)

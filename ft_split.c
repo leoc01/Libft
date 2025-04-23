@@ -12,64 +12,74 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <unistd.h>
 
-static size_t	count_words(char const *s, char c);
-static void		change_delimiter(char *s, char c);
+static size_t	ft_countwords(char const *str, char *chr);
+static int		ft_memallo(char **words, size_t word_count, size_t word_size);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
-	size_t	word_count;
-	char	*s_cpy;
 	size_t	i;
-	size_t	w;
+	size_t	word_count;
+	size_t	word_size;
 
 	if (s == NULL)
 		return (NULL);
-	word_count = count_words(s, c);
-	words = (char **)malloc((word_count + 1) * sizeof(char *));
+	words = (char **)malloc((ft_countwords(s, &c) + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
 	i = 0;
-	w = 0;
-	s_cpy = ft_strdup(s);
-	change_delimiter(s_cpy, c);
+	word_count = 0;
 	while (i < ft_strlen(s))
 	{
-		if (s[i] != c && (i == 0 || (i > 0 && s[i - 1] == c)))
-			words[w++] = ft_strdup(&s_cpy[i]);
-		i++;
+		if (s[i] == c && ++i)
+			continue ;
+		if (ft_strchr(&s[i], c) == NULL)
+			c = '\0';
+		word_size = ft_strchr(&s[i], c) - &s[i] + 1;
+		if (ft_memallo(words, word_count, word_size))
+			return (NULL);
+		ft_strlcpy(words[word_count], &s[i], word_size);
+		i += word_size;
+		word_count++;
 	}
-	free(s_cpy);
+	words[word_count] = NULL;
 	return (words);
 }
 
-static void	change_delimiter(char *s, char c)
+static int	ft_memallo(char **words, size_t word_count, size_t word_size)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	words[word_count] = (char *)malloc((word_size) * sizeof(char));
+	if (words[word_count] == NULL)
 	{
-		if (s[i] == c)
+		while (word_count > 0)
 		{
-			s[i] = '\0';
+			free(words[--word_count]);
 		}
-		i++;
+		free(words);
+		return (1);
 	}
+	return (0);
 }
 
-static size_t	count_words(char const *s, char c)
+static size_t	ft_countwords(char const *str, char *chr)
 {
 	size_t	word_count;
 	size_t	i;
 
 	i = 0;
 	word_count = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (str[i] == *chr && ++i)
+		{
+			continue ;
+		}
+		if (str[i + 1] == *chr || str[i + 1] == '\0')
+		{
 			word_count++;
+		}
 		i++;
 	}
 	return (word_count);

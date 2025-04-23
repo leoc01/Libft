@@ -19,8 +19,8 @@ int	ft_strlcat_test(void)
 	size_t	return_o;
 	size_t	return_m;
 
-	strlcpy(dest_o, "", sizeof(dest_o));
-	strlcpy(dest_m, "", sizeof(dest_m));
+	dest_o[0] = '\0';
+	dest_m[0] = '\0';
 	return_o = strlcat(dest_o, "", sizeof(dest_o));
 	return_m = ft_strlcat(dest_m, "", sizeof(dest_m));
 	if (return_m != return_o || strcmp(dest_o, dest_m) != 0)

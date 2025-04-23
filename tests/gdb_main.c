@@ -10,8 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	main(void)
 {
-	printf("%d", ft_bzero_test());
+	char	**words;
+	words = ft_split("xxxxxxxxxxhello!", 'x');
 	return (0);
 }

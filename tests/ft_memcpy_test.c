@@ -13,18 +13,21 @@
 
 #include "libftest.h"
 
+int	runtest(void *dest, const void *src, size_t n);
+
 int	ft_memcpy_test(void)
 {
-	char	src[SIZE];
 	char	dest[SIZE];
 
-	strcpy(src, "1234567890\0");
-	ft_memcpy(dest, src, SIZE);
+	runtest(dest, "0123456789\0", SIZE);
+	runtest(dest, "9876543210\0", (SIZE - 3));
+	return (OK);
+}
+
+int	runtest(void *dest, const void *src, size_t n)
+{
+	ft_memcpy(dest, src, n);
 	if (strncmp(dest, src, SIZE) != 0)
-		return (FAIL);
-	strcpy(src, "9876543210\0");
-	ft_memcpy(dest, src, (SIZE - 3));
-	if (strncmp(dest, src, SIZE) == 0)
 		return (FAIL);
 	return (OK);
 }
