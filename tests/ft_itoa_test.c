@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 13:35:26 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/10 13:35:59 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/24 16:00:29 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/24 16:01:04 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftest.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_itoa_test(void)
 {
-	size_t			position;
-	unsigned char	*dest_ptr;
-	
-	dest_ptr = (unsigned char *)dest;
-	if (dest == NULL && src == NULL)
-		return (dest_ptr);
-	position = 0;
-	while (position < n)
-	{
-		dest_ptr[position] = ((unsigned char *)src)[position];
-		position++;
-	}
-	return (dest_ptr);
+	char	*num;
+
+	num = ft_itoa(256);
+	printf("%s\n", num);
+	return (FAIL);
 }

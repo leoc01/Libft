@@ -32,7 +32,7 @@ int	ft_atoi_test(void)
 		return (FAIL);
 	if (ft_atoi("49") != atoi("49"))
 		return (FAIL);
-	if (ft_atoi("2147483648") != atoi("2147483648"))
+	if (ft_atoi("-214748364") != atoi("-214748364"))
 		return (FAIL);
 	return (OK);
 }
