@@ -14,15 +14,16 @@
 #include <stdio.h>
 #include <unistd.h>
 
-static size_t	ft_countwords(char const *str, char *chr);
-static int		ft_memallo(char **words, size_t word_count, size_t word_size);
+static size_t	ft_countwords(char const *s, char *c);
+static int		ft_memallo(char **words, size_t w_count, size_t w_size);
+static size_t	ft_defwsize(char const *s, size_t i, char c);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
 	size_t	i;
-	size_t	word_count;
-	size_t	word_size;
+	size_t	w_count;
+	size_t	w_size;
 
 	if (s == NULL)
 		return (NULL);
@@ -30,32 +31,40 @@ char	**ft_split(char const *s, char c)
 	if (words == NULL)
 		return (NULL);
 	i = 0;
-	word_count = 0;
+	w_count = 0;
 	while (i < ft_strlen(s))
 	{
 		if (s[i] == c && ++i)
 			continue ;
-		if (ft_strchr(&s[i], c) == NULL)
-			c = '\0';
-		word_size = ft_strchr(&s[i], c) - &s[i] + 1;
-		if (ft_memallo(words, word_count, word_size))
+		w_size = ft_defwsize(s, i, c);
+		if (ft_memallo(words, w_count, w_size))
 			return (NULL);
-		ft_strlcpy(words[word_count], &s[i], word_size);
-		i += word_size;
-		word_count++;
+		ft_strlcpy(words[w_count], &s[i], w_size);
+		i += w_size;
+		w_count++;
 	}
-	words[word_count] = NULL;
+	words[w_count] = NULL;
 	return (words);
 }
 
-static int	ft_memallo(char **words, size_t word_count, size_t word_size)
+static size_t	ft_defwsize(char const *s, size_t i, char c)
 {
-	words[word_count] = (char *)malloc((word_size) * sizeof(char));
-	if (words[word_count] == NULL)
+	size_t	w_size;
+
+	if (ft_strchr(&s[i], c) == NULL)
+		c = '\0';
+	w_size = ft_strchr(&s[i], c) - &s[i] + 1;
+	return (w_size);
+}
+
+static int	ft_memallo(char **words, size_t w_count, size_t w_size)
+{
+	words[w_count] = (char *)malloc((w_size) * sizeof(char));
+	if (words[w_count] == NULL)
 	{
-		while (word_count > 0)
+		while (w_count > 0)
 		{
-			free(words[--word_count]);
+			free(words[--w_count]);
 		}
 		free(words);
 		return (1);
@@ -63,24 +72,24 @@ static int	ft_memallo(char **words, size_t word_count, size_t word_size)
 	return (0);
 }
 
-static size_t	ft_countwords(char const *str, char *chr)
+static size_t	ft_countwords(char const *s, char *c)
 {
-	size_t	word_count;
+	size_t	w_count;
 	size_t	i;
 
 	i = 0;
-	word_count = 0;
-	while (str[i] != '\0')
+	w_count = 0;
+	while (s[i] != '\0')
 	{
-		if (str[i] == *chr && ++i)
+		if (s[i] == *c && ++i)
 		{
 			continue ;
 		}
-		if (str[i + 1] == *chr || str[i + 1] == '\0')
+		if (s[i + 1] == *c || s[i + 1] == '\0')
 		{
-			word_count++;
+			w_count++;
 		}
 		i++;
 	}
-	return (word_count);
+	return (w_count);
 }
