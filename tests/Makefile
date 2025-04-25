@@ -63,7 +63,7 @@ clean:
 	make clean -C ../
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFTEST) $(LIBFT) $(FTHEADER)
+	$(RM) $(NAME) $(LIBFTEST) $(LIBFT) $(FTHEADER) $(GDBTEST)
 	make fclean -C ../
 
 re: fclean all

@@ -51,5 +51,6 @@ int		ft_substr_test(void);
 int		ft_strjoin_test(void);
 int		ft_strtrim_test(void);
 int		ft_split_test(void);
+int		ft_strmapi_test(void);
 
 #endif

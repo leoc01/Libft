@@ -18,20 +18,18 @@ int	ft_split_test(void)
 	size_t	w;
 
 	w = 0;
-//	words = ft_split(",,,,word1,word 2,word3,,word4,word  5,,, word6, p", ',');
-//	words = ft_split("xxxxxxxxxxxxhello!", 'x');
-	words = ft_split("", 'x');
+	words = ft_split(",,,,word1,word 2,word3,,word4,word  5,,, word6, p", ',');
 	while (words[w] != NULL)
 	{
-		printf("%s\n", words[w]);
 		w++;
 	}
-/*	w = 0;
-	while (w < 6)
+	w = 0;
+	while (words[w] != NULL)
 	{
 		free(words[w]);
 		w++;
 	}
-	free(words);*/
-	return (FAIL);
+	free(words[w]);
+	free(words);
+	return (OK);
 }

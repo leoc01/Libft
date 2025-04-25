@@ -50,6 +50,7 @@ int	main(void)
 	run_test("ft_strjoin", ft_strjoin_test);
 	run_test("ft_strtrim", ft_strtrim_test);
 	run_test("ft_split", ft_split_test);
+	run_test("ft_strmapi", ft_strmapi_test);
 	printf("\n\n");
 	return (0);
 }

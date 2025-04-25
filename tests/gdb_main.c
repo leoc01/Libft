@@ -15,6 +15,7 @@
 int	main(void)
 {
 	char	**words;
+
 	words = ft_split("xxxxxxxxxxhello!", 'x');
 	return (0);
 }

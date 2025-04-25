@@ -43,6 +43,7 @@ FILES += ft_substr.c
 FILES += ft_strjoin.c
 FILES += ft_strtrim.c
 FILES += ft_split.c
+FILES += ft_strmapi.c
 
 OBJS = $(FILES:%.c=%.o)
 
