@@ -55,7 +55,7 @@ $(LIBFT):
 	cp ../$(FTHEADER) $(FTHEADER)
 
 %.o: %.c
-#	@echo " - Creating $@"
+	@echo " - Creating $@"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

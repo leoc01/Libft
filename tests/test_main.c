@@ -51,6 +51,8 @@ int	main(void)
 	run_test("ft_strtrim", ft_strtrim_test);
 	run_test("ft_split", ft_split_test);
 	run_test("ft_strmapi", ft_strmapi_test);
+	run_test("ft_striteri", ft_striteri_test);
+	run_test("ft_putnbr_fd", ft_putnbr_fd_test);
 	printf("\n\n");
 	return (0);
 }
