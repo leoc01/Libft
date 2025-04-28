@@ -14,18 +14,21 @@
 
 int	ft_strchr_test(void)
 {
-	char	str[13];
+	char	str[50];
 
-	ft_strlcpy(str, "A small test", 13);
-	if (ft_strchr(str, 'A') != &str[0])
+	ft_strlcpy(str, "\x80\xFF Hello, teste!\x00", 50);
+	if (ft_strchr(str, 'A') != strchr(str, 'A'))
 		return (FAIL);
-	if (ft_strchr(str, 's') != &str[2])
+	if (ft_strchr(str, 's') != strchr(str, 's'))
 		return (FAIL);
-	if (ft_strchr(str, ' ') != &str[1])
+	if (ft_strchr(str, ' ') != strchr(str, ' '))
 		return (FAIL);
-	if (ft_strchr(str, 'x') != NULL)
+	if (ft_strchr(str, 'x') != strchr(str, 'x'))
 		return (FAIL);
-	if (ft_strchr(str, '\0') != &str[12])
+	if (ft_strchr(str, '\0') != strchr(str, '\0'))
+		return (FAIL);
+	printf("%s", ft_strchr(str, 0xFF));
+	if (ft_strchr(str, 0xFF) != strchr(str, 0xFF))
 		return (FAIL);
 	return (OK);
 }

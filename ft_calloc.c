@@ -23,6 +23,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	total_space = nmemb * size;
 	ptr = malloc(total_space);
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
 	ft_memset(ptr, '\0', total_space);
 	return (ptr);
 }
