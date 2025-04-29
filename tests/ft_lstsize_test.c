@@ -16,20 +16,25 @@ int	ft_lstsize_test(void)
 {
 	t_list	*lst;
 
-	lst = ft_lstnew(NULL);
+	lst = NULL;
+	ft_lstadd_front(&lst, NULL);
 	write(1, "1", 1);
 	write(1, "\n", 1);
-	ft_lstadd_front(&lst, ft_lstnew(NULL));
+	ft_lstadd_front(&lst, ft_lstnew("oi"));
 	write(1, "1", 1);
+	printf("%s\n", (char *)lst -> content);
 	write(1, "\n", 1);
-	ft_lstadd_front(&lst, ft_lstnew(NULL));
+	ft_lstadd_front(&lst, ft_lstnew("oi"));
 	write(1, "1", 1);
+	printf("%s\n", (char *)lst -> content);
 	write(1, "\n", 1);
-	ft_lstadd_front(&lst, ft_lstnew(NULL));
+	ft_lstadd_front(&lst, ft_lstnew("oi"));
 	write(1, "1", 1);
+	printf("%s\n", (char *)lst -> content);
 	write(1, "\n", 1);
-	ft_lstadd_front(&lst, ft_lstnew(NULL));
+	ft_lstadd_front(&lst, ft_lstnew("oi"));
 	write(1, "1", 1);
+	printf("%s\n", (char *)lst -> content);
 	write(1, "\n", 1);
 	printf("%d\n", ft_lstsize(lst));
 	return (FAIL);
