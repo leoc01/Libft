@@ -50,7 +50,7 @@ $(LIBFTEST): $(LIBFT) $(TESTOBJS)
 
 $(LIBFT):
 #	@echo " - Compiling $@"
-	make -C ../
+	make bonus -C ../
 	cp ../$(LIBFT) $(LIBFT)
 	cp ../$(FTHEADER) $(FTHEADER)
 

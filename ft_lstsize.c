@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 13:45:58 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/29 13:46:11 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/29 18:00:22 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/29 18:01:55 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	if (n >= 0)
-	{
-		if (n >= 10)
-		{
-			ft_putnbr_fd(n / 10, fd);
-		}
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-	else if (n == INT_MIN)
-	{
-		ft_putstr_fd("-2147483648", fd);
-	}
-	else
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(n * -1, fd);
-	}
+	if (lst == NULL)
+		return (0);
+	if (lst -> next == NULL)
+		return (1);
+	return (1 + ft_lstsize(lst -> next));
 }

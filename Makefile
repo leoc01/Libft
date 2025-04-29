@@ -53,13 +53,19 @@ FILES += ft_putnbr_fd.c
 
 OBJS = $(FILES:%.c=%.o)
 
+BONUS_FILES = ft_lstnew.c
+BONUS_FILES += ft_lstadd_front.c
+BONUS_FILES += ft_lstsize.c
+
+BONUS_OBJS = $(BONUS_FILES:%.c=%.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -68,3 +74,9 @@ re: fclean all
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: .bonus_linked
+
+.bonus_linked: $(NAME) $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
+	@touch .bonus_linked

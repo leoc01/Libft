@@ -33,7 +33,7 @@ char	*ft_itoa(int n)
 	{
 		n = ft_isnegative(num, n);
 		num[len] = '\0';
-		while(len > 0)
+		while (len > 0)
 		{
 			--len;
 			if (len > 0 || num[0] != '-')

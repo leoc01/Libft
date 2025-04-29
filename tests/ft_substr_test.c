@@ -17,23 +17,19 @@ int	ft_substr_test(void)
 	char	*str;
 
 	str = ft_substr("A nice", 3, 0);
-	if (str != NULL)
+	if (str[0] != '\0')
 		return (FAIL);
-	free(str);
 	str = ft_substr("A nice test", 7, 3);
 	if (strcmp(str, "tes") != 0)
 		return (FAIL);
-	free(str);
 	str = ft_substr("A nice test", 7, 4);
 	if (strcmp(str, "test") != 0)
 		return (FAIL);
-	free(str);
 	str = ft_substr("A nice test", 7, 5);
 	if (strcmp(str, "test") != 0)
 		return (FAIL);
-	free(str);
 	str = ft_substr("L", 7, 4);
-	if (str != NULL)
+	if (str[0] != '\0')
 		return (FAIL);
 	free(str);
 	return (OK);

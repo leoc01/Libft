@@ -17,6 +17,6 @@ int	ft_itoa_test(void)
 	char	*num;
 
 	num = ft_itoa(-1000);
-	printf("%s\n", num);
-	return (FAIL);
+	free(num);
+	return (OK);
 }

@@ -33,7 +33,7 @@ int	ft_strlen_test(void);
 int	ft_memset_test(void);
 int	ft_bzero_test(void);
 int	ft_memcpy_test(void);
-int ft_memmove_test(void);
+int	ft_memmove_test(void);
 int	ft_strlcpy_test(void);
 int	ft_strlcat_test(void);
 int	ft_toupper_test(void);
@@ -53,10 +53,13 @@ int	ft_strtrim_test(void);
 int	ft_split_test(void);
 int	ft_itoa_test(void);
 int	ft_strmapi_test(void);
-int ft_striteri_test(void);		
+int	ft_striteri_test(void);		
 int	ft_putchar_fd_test(void);
 int	ft_putstr_fd_test(void);
 int	ft_putendl_fd_test(void);
 int	ft_putnbr_fd_test(void);
+int	ft_lstnew_test(void);
+int	ft_lstadd_front_test(void);
+int	ft_lstsize_test(void);
 
 #endif

@@ -54,6 +54,9 @@ int	main(void)
 	run_test("ft_strmapi", ft_strmapi_test);
 	run_test("ft_striteri", ft_striteri_test);
 	run_test("ft_putnbr_fd", ft_putnbr_fd_test);
+	run_test("ft_lstnew", ft_lstnew_test);
+	run_test("ft_lstadd_front", ft_lstadd_front_test);
+	run_test("ft_lstsize", ft_lstsize_test);
 	printf("\n\n");
 	return (0);
 }

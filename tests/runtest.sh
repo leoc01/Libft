@@ -5,8 +5,9 @@ compile_n_run() {
 	make -s
 	clear
 	make -s
+
 	./test
-	if ! (cd ../ && norminette | grep "aaa"); then
+	if ! (cd ../ && norminette | grep "Error"); then
 		echo "Norminette: OK!"
 	fi
 	make -s fclean

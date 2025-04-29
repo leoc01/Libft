@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 13:45:58 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/29 13:46:11 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/29 12:58:32 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/29 12:59:21 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftest.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_lstnew_test(void)
 {
-	if (n >= 0)
-	{
-		if (n >= 10)
-		{
-			ft_putnbr_fd(n / 10, fd);
-		}
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-	else if (n == INT_MIN)
-	{
-		ft_putstr_fd("-2147483648", fd);
-	}
-	else
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(n * -1, fd);
-	}
+	t_list	*node0;
+	char	*str;
+
+	node0 = ft_lstnew("teste");
+	str = node0 -> content;
+	free(node0);
+	if (strcmp(str, "teste") != 0)
+		return (FAIL);
+	return (OK);
 }

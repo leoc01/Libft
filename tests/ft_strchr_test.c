@@ -27,7 +27,6 @@ int	ft_strchr_test(void)
 		return (FAIL);
 	if (ft_strchr(str, '\0') != strchr(str, '\0'))
 		return (FAIL);
-	printf("%s", ft_strchr(str, 0xFF));
 	if (ft_strchr(str, 0xFF) != strchr(str, 0xFF))
 		return (FAIL);
 	return (OK);
