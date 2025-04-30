@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_test.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 20:31:29 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/29 20:31:46 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/30 15:47:03 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/30 15:47:04 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "libft.h"
 
-int	ft_lstsize_test(void)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*lst;
-	size_t	size;
+	t_list *ret_lst;
 
-	lst = NULL;
-	ft_lstadd_front(&lst, NULL);
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	size = ft_lstsize(lst);
-	if (size != 4)
-		return (FAIL);
-	return (OK);
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	while(lst != NULL)
+	{
+		ft_lstadd_back(&ret_lst, ft_lstnew(f(lst->content)));
+		if (ft_lstlast(ret_lst) == NULL)
+			ft_lstclear(&ret_lst, del);
+		del(lst);
+		lst = lst->next;
+	}
+	return (ret_lst);
 }

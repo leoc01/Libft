@@ -56,8 +56,16 @@ OBJS = $(FILES:%.c=%.o)
 BONUS_FILES = ft_lstnew.c
 BONUS_FILES += ft_lstadd_front.c
 BONUS_FILES += ft_lstsize.c
+BONUS_FILES += ft_lstlast.c
+BONUS_FILES += ft_lstadd_back.c
+BONUS_FILES += ft_lstdelone.c
+BONUS_FILES += ft_lstclear.c
+BONUS_FILES += ft_lstiter.c
+BONUS_FILES += ft_lstmap.c
 
 BONUS_OBJS = $(BONUS_FILES:%.c=%.o)
+
+BONUS_STATUS = .bonus_linked
 
 all: $(NAME)
 
@@ -65,7 +73,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS) $(BONUS_STATUS)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -75,8 +83,8 @@ re: fclean all
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: .bonus_linked
+bonus: $(BONUS_STATUS)
 
-.bonus_linked: $(NAME) $(BONUS_OBJS)
+$(BONUS_STATUS): $(NAME) $(BONUS_OBJS)
 	ar rcs $(NAME) $(BONUS_OBJS)
-	@touch .bonus_linked
+	@touch $(BONUS_STATUS)

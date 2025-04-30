@@ -57,6 +57,8 @@ int	main(void)
 	run_test("ft_lstnew", ft_lstnew_test);
 	run_test("ft_lstadd_front", ft_lstadd_front_test);
 	run_test("ft_lstsize", ft_lstsize_test);
+	run_test("ft_lstlast", ft_lstlast_test);
+	run_test("ft_lstadd_back", ft_lstadd_back_test);
 	printf("\n\n");
 	return (0);
 }

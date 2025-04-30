@@ -61,5 +61,7 @@ int	ft_putnbr_fd_test(void);
 int	ft_lstnew_test(void);
 int	ft_lstadd_front_test(void);
 int	ft_lstsize_test(void);
+int	ft_lstlast_test(void);
+int	ft_lstadd_back_test(void);
 
 #endif

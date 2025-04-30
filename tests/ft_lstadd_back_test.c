@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_test.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back_test.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 20:31:29 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/29 20:31:46 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/30 12:29:49 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/30 12:30:22 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
 
-int	ft_lstsize_test(void)
+int	ft_lstadd_back_test(void)
 {
 	t_list	*lst;
-	size_t	size;
+	char	*str;
 
-	lst = NULL;
-	ft_lstadd_front(&lst, NULL);
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	ft_lstadd_front(&lst, ft_lstnew("oi"));
-	size = ft_lstsize(lst);
-	if (size != 4)
+	ft_lstadd_back(&lst, ft_lstnew("test1"));
+	ft_lstadd_back(&lst, ft_lstnew("test2"));
+	ft_lstadd_back(&lst, ft_lstnew("final_test"));
+	str = ft_lstlast(lst)->content;
+	if (strcmp(str, "final_test") != 0)
 		return (FAIL);
 	return (OK);
 }
