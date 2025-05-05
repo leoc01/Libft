@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper_test.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuscaro <lbuscaro@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:59:20 by lbuscaro          #+#    #+#             */
-/*   Updated: 2025/04/15 14:00:37 by lbuscaro         ###   ########.fr       */
+/*   Created: 2025/04/29 13:45:58 by lbuscaro          #+#    #+#             */
+/*   Updated: 2025/04/29 13:46:11 by lbuscaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "libft.h"
 
-int	ft_toupper_test(void)
+size_t	ft_putaddr(unsigned long int n)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
-	while (i <= 127)
-	{
-		if (toupper(i) != ft_toupper(i))
-			return (FAIL);
-		i++;
-	}
-	return (OK);
+	if (n == 0)
+		return (ft_putstr_fd("(nil)", 1));
+	if (n >= 16)
+		i += ft_putaddr(n / 16);
+	else 
+		i += ft_putstr_fd("0x", 1);
+	if ((n % 16) < 10)
+		i += ft_putchar_fd(n % 16 + '0', 1);
+	else if ((n % 16) < 16)
+		i += ft_putchar_fd(n % 16 + 'a' - 10, 1);
+	return (i);
 }
